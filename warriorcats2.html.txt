@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Warrior Cats Adventure 2</title>
+</head>
+<body>
+
+<h1>🐾 Warrior Cats Adventure 2</h1>
+
+<p>Choose your clan:</p>
+<button onclick="chooseClan('ThunderClan')">ThunderClan</button>
+<button onclick="chooseClan('RiverClan')">RiverClan</button>
+<button onclick="chooseClan('ShadowClan')">ShadowClan</button>
+<button onclick="chooseClan('WindClan')">WindClan</button>
+
+<p id="clan"></p>
+<p>Prey Collected: <span id="prey">0</span></p>
+<p id="story"></p>
+
+<button onclick="hunt()" id="huntBtn" style="display:none;">Hunt for prey</button>
+<button onclick="fight()" id="fightBtn" style="display:none;">Fight another cat</button>
+<button onclick="explore()" id="exploreBtn" style="display:none;">Explore the forest</button>
+
+<script>
+let clan = "";
+let prey = 0;
+
+function chooseClan(selected) {
+  clan = selected;
+  document.getElementById("clan").innerText = "You are in " + clan + "!";
+  document.getElementById("huntBtn").style.display = "inline";
+  document.getElementById("fightBtn").style.display = "inline";
+  document.getElementById("exploreBtn").style.display = "inline";
+  document.getElementById("story").innerText = "Your adventure begins!";
+}
+
+function hunt() {
+  prey += 1;
+  document.getElementById("prey").innerText = prey;
+  document.getElementById("story").innerText = "You caught a mouse!";
+}
+
+function fight() {
+  let outcome = Math.random();
+  if(outcome < 0.5){
+    document.getElementById("story").innerText = "You lost the fight! Be careful!";
+  } else {
+    document.getElementById("story").innerText = "You won the fight! Glory for " + clan + "!";
+  }
+}
+
+function explore() {
+  let events = [
+    "You explore the forest and smell another clan nearby...",
+    "You find a safe den to rest.",
+    "A fox crosses your path! Better be careful."
+  ];
+  document.getElementById("story").innerText = events[Math.floor(Math.random() * events.length)];
+}
+</script>
+
+</body>
+</html>
