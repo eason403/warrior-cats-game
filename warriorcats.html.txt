@@ -1,0 +1,39 @@
+
+<html>
+<head>
+<title>Warrior Cats Adventure</title>
+</head>
+
+<body>
+
+<h1>🐾 Warrior Cats Adventure</h1>
+
+<p>You are a ThunderClan warrior exploring the forest!</p>
+
+<p>Prey Collected: <span id="prey">0</span></p>
+
+<button onclick="hunt()">Hunt for prey</button>
+<button onclick="explore()">Explore the forest</button>
+
+<p id="story"></p>
+
+<script>
+let prey = 0;
+
+function hunt() {
+  prey = prey + 1;
+  document.getElementById("prey").innerText = prey;
+  document.getElementById("story").innerText =
+  "You caught a mouse!";
+}
+
+function explore() {
+  document.getElementById("story").innerText =
+  "You explore the forest and smell another clan nearby...";
+}
+</script>
+
+</body>
+</html>
+
+     
