@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Warrior Cats Adventure</title>
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background-color: #d9f2d9;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#story {
+  margin-top: 20px;
+  font-size: 18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🐾 Warrior Cats Adventure 🐾</h1>
+<p>You are a young warrior exploring the forest.</p>
+
+<button onclick="hunt()">Hunt for prey</button>
+<button onclick="explore()">Explore the forest</button>
+
+<h2>Prey Score: <span id="score">0</span></h2>
+
+<p id="story">Your adventure begins...</p>
+
+<script>
+
+let score = 0;
+
+function hunt() {
+  let prey = Math.floor(Math.random() * 3) + 1;
+  score += prey;
+
+  document.getElementById("score").textContent = score;
+  document.getElementById("story").textContent =
+    "You caught " + prey + " prey!";
+}
+
+function explore() {
+
+  let events = [
+    "You find a river.",
+    "You meet another warrior.",
+    "You smell prey nearby.",
+    "You hear something moving in the bushes.",
+    "You discover a hidden path."
+  ];
+
+  let event = events[Math.floor(Math.random() * events.length)];
+
+  document.getElementById("story").textContent = event;
+}
+
+</script>
